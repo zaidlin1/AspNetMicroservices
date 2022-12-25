@@ -23,7 +23,7 @@ namespace Discount.Grpc.Services
 
         public override async Task<CouponModel> GetDiscount(GetDiscountRequest request, ServerCallContext context)
         {
-            var coupon = _discountRepository.GetDiscount(request.ProductName);
+            var coupon = await _discountRepository.GetDiscount(request.ProductName);
 
             if(coupon== null)
             {
